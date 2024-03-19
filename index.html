@@ -1,3 +1,42 @@
-<html>
-  <p2>Teste...</p2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vídeo do YouTube Responsivo</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* Proporção de 16:9 (dividindo 9 por 16 e multiplicando por 100) */
+        height: 0;
+        width: 80%; /* Largura ajustável */
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div class="video-wrapper">
+    <!-- Substitua 'VIDEO_ID' pelo ID do vídeo do YouTube -->
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
+
+</body>
 </html>
