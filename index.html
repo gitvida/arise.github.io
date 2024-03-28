@@ -3,52 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#Convite</title>
+<title>Video Player</title>
 <style>
   body {
     margin: 0;
     padding: 0;
     background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
   .video-container {
     position: relative;
     width: 100%;
-    height: 70%;
-    padding-bottom: 56.25%; /* Proporção 16:9 */
+    max-width: 854px;
+    height: 480px;
+    margin-bottom: 20px; /* Espaço entre o vídeo e a seta */
   }
   .video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
   }
-  .contact-form {
-    max-width: 60%; /* Ajuste conforme necessário */
-    margin: 20px auto; /* Espaçamento em relação ao vídeo */
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
   }
-  /* Estilos adicionais para tornar o formulário responsivo */
-  .contact-form iframe {
-    width: 80%;
-    height: 350px; /* Altura do formulário. Ajuste conforme necessário */
+  .play-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
   }
-  @media screen and (max-width: 600px) {
-    .contact-form {
-      max-width: 100%; /* Ajuste para telas menores */
-    }
+  .arrow-down {
+    color: #fff;
+    font-size: 24px;
+    margin-top: 10px; /* Espaço entre o vídeo e a seta */
   }
 </style>
 </head>
 <body>
 <div class="video-container">
-  <video controls autoplay>
+  <video controls id="video">
     <source src="untitled.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <button class="play-button" onclick="playPause()">Play</button>
+</div>
+<div class="arrow-down">
+  &#8595; <!-- Seta para baixo -->
 </div>
 <div class="contact-form">
   <div data-embed-src="https://kontactr.com/form/74a3cafde7c6db6"></div>
   <script src="https://d3vxmrleduyji.cloudfront.net/js/e.js"></script>
 </div>
+
+<script>
+  function playPause() {
+    var myVideo = document.getElementById("video");
+    if (myVideo.paused)
+      myVideo.play();
+    else
+      myVideo.pause();
+  }
+</script>
 </body>
 </html>
