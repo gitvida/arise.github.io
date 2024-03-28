@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Player</title>
+<title>#arise</title>
 <style>
   body {
     margin: 0;
@@ -50,11 +50,11 @@
 </head>
 <body>
 <div class="video-container">
-  <video controls id="video">
+  <video controls id="video" onplay="hidePlayButton()">
     <source src="untitled.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <button class="play-button" onclick="playPause()">Play</button>
+  <button class="play-button" id="playButton" onclick="playPause()">Play</button>
 </div>
 <div class="arrow-down">
   &#8595; <!-- Seta para baixo -->
@@ -71,6 +71,11 @@
       myVideo.play();
     else
       myVideo.pause();
+  }
+
+  function hidePlayButton() {
+    var playButton = document.getElementById("playButton");
+    playButton.style.display = "none";
   }
 </script>
 </body>
